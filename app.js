@@ -6,7 +6,7 @@ const GetSitemapLinks = require("get-sitemap-links").default;
 var count = 0;
 
 // clear log file
-const logFile = fs.createWriteStream("output2.log", {
+const logFile = fs.createWriteStream("output.log", {
   flags: "w",
 });
 
@@ -14,7 +14,10 @@ const logFile = fs.createWriteStream("output2.log", {
 // const urlList = require("./list.js");
 
 (async () => {
-  const urlList = await GetSitemapLinks("https://www.csob.sk/delegate/sitemap.xml");
+  // Add sitemap URL
+  const urlList = await GetSitemapLinks(
+    "https://www.csob.sk/delegate/sitemap.xml"
+  );
   console.log("Total items in sitemap: " + urlList.length);
 
   const c = new Crawler({
