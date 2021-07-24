@@ -21,7 +21,7 @@ const logFile = fs.createWriteStream("output.log", {
   console.log("Total items in sitemap: " + urlList.length);
 
   const c = new Crawler({
-    rateLimit: 3000, // interval in ms
+    rateLimit: 2000, // interval in ms
     maxConnections: 1,
 
     // This will be called for each crawled page
@@ -36,19 +36,21 @@ const logFile = fs.createWriteStream("output.log", {
         let output = res.body.includes(".icon");
         let outputString = String(output);
 
-        logFile.write(
-          outputString +
-            " || " +
-            count +
-            "/" +
-            urlList.length +
-            " || " +
-            res.options.uri +
-            "\r\n"
-        );
+        if (outputString == "true") {
+          logFile.write(
+            outputString +
+              " || " +
+              count +
+              "/" +
+              urlList.length +
+              " || " +
+              res.options.uri +
+              "\r\n"
+          );
+        }
 
         let outputRender;
-        if (outputString === "true") {
+        if (outputString == "true") {
           outputRender = chalk.green(outputString);
         } else {
           outputRender = chalk.gray(outputString);
