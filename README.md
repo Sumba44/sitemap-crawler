@@ -1,6 +1,6 @@
-# SITEMAP CRAWLER
+# SITEMAP CRAWLER (Node.js)
 
-Easy sitemap crawler. Just insert sitemap url and search for any string in the DOM.
+Easy Node.js sitemap crawler. Just insert sitemap url and search for any string in the DOM.
 
 
 ## Build Setup
@@ -9,7 +9,7 @@ Easy sitemap crawler. Just insert sitemap url and search for any string in the D
 # install dependencies
 $ npm install
 
-# serve with hot reload at localhost:3000
+# run the script
 $ npm run index.js
 
 ```
